@@ -5,35 +5,99 @@
 }
 
 body {
+  position: fixed;
+  font-family: 'Inria Sans';
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: #18181A;
+}
+
+.root {
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: grid;
+}
+
+
+.clockWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: #18181A;
-  border: solid 1px #bebebe;
+}
+
+.stopwatchWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #18181A;
+  transform: translateY(-100%);
 }
 
 .clock {
-  position: fixed;
+  position: absolute;
+  display: flex;
   min-width: 400px;
   min-height: 400px;
-  display: flex;
   justify-content: center;
   align-items: center;
+  
+}
+
+.stopwatch {
+  position: absolute;
+  display: flex;
+  min-width: 400px;
+  min-height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.visibleClock {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+
+  transition: all 1s ease-in-out;
+}
+
+.hiddenClock {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 1s ease-in-out;
+}
+
+.visibleTimer {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+
+  transition: all 1s ease-in-out;
+}
+
+.hiddenTimer {
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 1s ease-in-out;
 }
 
 .background {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.numbers {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  .numbers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 }
 
 .arrows {
@@ -47,14 +111,20 @@ body {
     width: 200px;
     z-index: 3;
   }
-  
+
   .min {
     position: absolute;
     width: 260px;
     z-index: 2;
   }
-  
+
   .sec {
+    position: absolute;
+    width: 320px;
+    z-index: 1;
+  }
+
+  .timerSec {
     position: absolute;
     width: 320px;
     z-index: 1;
@@ -73,8 +143,68 @@ body {
   z-index: 4;
 }
 
-.external_circles {
+.externalCircles {
   .circle_1 {
-    width: 550px;
+    transition: all ease-in-out;
+
+    img {
+      width: 550px;
+      transition: all ease-in-out;
+    }
+  }
+}
+
+.digitalDial {
+  font-family: 'Inria Sans';
+  font-size: 60px;
+  color: #e8e8e8;
+  z-index: 15;
+}
+
+.menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 16px;
+  top: 16px;
+
+  img {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .menuIcon {
+    z-index: 10;
+  }
+
+  .clockIcon {
+    z-index: 9;
+    transform: translateY(-110%);
+    margin-bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .stopwatchIcon {
+    z-index: 9;
+    transform: translateY(-200%);
+    margin-bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .iconVisible {
+    visibility: visible;
+    opacity: 0.4;
+    transform: translateY(0);
+    margin-bottom: 15px;
   }
 }

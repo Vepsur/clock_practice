@@ -6,27 +6,29 @@
   <title>Clock</title>
   <meta name="description" content="My first page">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-  <div class="external_circles">
-    <!-- <img class="circle_1" src="./img/ellipse_1.png" alt="Circle_1"> -->
-  </div>
-  <div class="clock">
-    <div class="numbers"></div>
-    <div class="background">
-      <img src="./img/numbers.png" class="numbers"></img>
-    </div>
-    <div class="arrows">
-      <img class="hour" src="./img/hour_dial.png"></img>
-      <img class="min" src="./img/min_dial.png"></img>
-      <img class="sec" src="./img/sec_dial.png"></img>
-      <div class="central_dot"></div>
+  <div id="root">
+    <div id="menu"></div>
+    <div class="content">
+      <div id="clock" class="visibleClock"></div>
+      <div id="stopwatch" class="hiddenTimer"></div>
     </div>
   </div>
 
-
+  <script type="module" src="./circleAnimation.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
   <script src="./clock.js"></script>
+  <script src="./menu.js"></script>
+  <script src="./stopwatch.js"></script>
+  <script src="./clockAnimation.js"></script>
 </body>
 
 </html>
